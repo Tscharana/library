@@ -12,3 +12,12 @@ function addBookToLibrary(name, author, year, pages) {
     const newBook = new Book(name, author, year, pages);
     myLibrary.push(newBook);
 }
+
+function display(books) {
+    books.forEach(book => {
+        console.log(book.name);
+        console.log(book.author);
+        console.log(book.year);
+        console.log(book.pages);
+        })
+}
