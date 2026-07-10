@@ -17,3 +17,7 @@
     border: 2px solid lightblue;
     background-color: lightgrey;
 }
+
+button {
+    margin-top: 10px;
+}

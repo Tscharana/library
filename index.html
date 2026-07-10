@@ -10,6 +10,37 @@
 <body>
     <h1>Library</h1>
     <div id="library-container"></div>
+
+    <dialog id="dialog-book">
+        <form action="#" method="post" id="modal-book-form">
+            <div class="form-item">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" placeholder="The Fellowship of the Ring" required>
+            </div>
+            <div class="form-item">
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author" placeholder="J. R. R. Tolkien" required>
+            </div>
+            <div class="form-item">
+                <label for="year">Year:</label>
+                <input type="number" name="year" id="year" placeholder=1954 required>
+            </div>
+            <div class="form-item">
+                <label for="pages">Pages:</label>
+                <input type="number" name="pages" id="pages" placeholder=423 required>
+            </div>
+            <div class="form-item">
+                <label for="read">Already read?</label>
+                <input type="checkbox" name="read" id="read" required>
+            </div>
+        </form>
+
+
+        <button type="submit" form="modal-book-form" id="dialog-book-confirm">Add Book</button>
+        <button type="button" id="dialog-book-close">Close</button>
+    </dialog>
+    <button type="button" id="dialog-open">New Book</button>
+
     
 </body>
 </html>

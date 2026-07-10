@@ -1,16 +1,16 @@
 const myLibrary = [];
 
-function Book(name, author, year, pages, read) {
+function Book(title, author, year, pages, read) {
     this.id = crypto.randomUUID();
-    this.name = name;
+    this.title = title;
     this.author = author;
     this.year = year;
     this.pages = pages;
     this.read = read;
 }
 
-function addBookToLibrary(name, author, year, pages, read) {
-    const newBook = new Book(name, author, year, pages, read);
+function addBookToLibrary(title, author, year, pages, read) {
+    const newBook = new Book(title, author, year, pages, read);
     myLibrary.push(newBook);
     clear();
     display();
@@ -26,9 +26,9 @@ function display() {
     myLibrary.forEach((book) => { 
         const newBook = document.createElement("div");
         newBook.classList.add(book.id, "card");
-        const name = document.createElement("div");
-        name.textContent = "\"" + book.name + "\"";
-        newBook.appendChild(name);
+        const title = document.createElement("div");
+        title.textContent = "\"" + book.title + "\"";
+        newBook.appendChild(title);
         const author = document.createElement("div");
         author.textContent = "written by " + book.author;
         newBook.appendChild(author);
@@ -46,3 +46,21 @@ function display() {
 }
 
 const libraryContainer = document.querySelector("#library-container");
+const dialogBook = document.querySelector("#dialog-book")
+const newBookButton = document.querySelector("#dialog-open");
+const dialogBookClose = document.querySelector("#dialog-book-close");
+const dialogBookConfirm = document.querySelector("#dialog-book-confirm");
+
+newBookButton.addEventListener("click", () => {
+    dialogBook.showModal();
+})
+
+dialogBookClose.addEventListener("click", () => {
+    dialogBook.close();
+})
+
+dialogBookConfirm.addEventListener("click", () => {
+    dialogBook.close();
+    clear();
+    display();
+})
