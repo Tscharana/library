@@ -1,3 +1,18 @@
 *, *::before, *::after {
     box-sizing: border-box;
 }
+
+#library-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 100px;
+    border: 2px solid lightblue;
+    background-color: lightcoral;
+}
