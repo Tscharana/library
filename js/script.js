@@ -38,7 +38,8 @@ function clear() {
 function display() {
     myLibrary.forEach((book) => { 
         const newBook = document.createElement("div");
-        newBook.classList.add(book.id, "card");
+        newBook.classList.add("card");
+        newBook.dataset.id = book.id;
         const titleDiv = document.createElement("div");
         titleDiv.textContent = "\"" + book.title + "\"";
         newBook.appendChild(titleDiv);
