@@ -67,7 +67,7 @@ dialogBookClose.addEventListener("click", () => {
 })
 
 bookForm.addEventListener("submit", (e) => {
-    addBookToLibrary(title.value, author.value, year.value, pages.value, read.checked);
     e.preventDefault();
+    addBookToLibrary(title.value, author.value, year.value, pages.value, read.checked);
     dialogBook.close();
 })
