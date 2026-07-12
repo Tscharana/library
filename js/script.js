@@ -55,6 +55,12 @@ function display() {
         const readDiv = document.createElement("div");
         readDiv.textContent = book.read ? "already read" : "not read yet";
         newBook.appendChild(readDiv);
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove book";
+        removeButton.addEventListener("click", (e) => {
+            e.currentTarget.parentElement.remove();
+        })
+        newBook.appendChild(removeButton);
         libraryContainer.appendChild(newBook);
     })
 }
@@ -72,3 +78,7 @@ bookForm.addEventListener("submit", (e) => {
     addBookToLibrary(title.value, author.value, year.value, pages.value, read.checked);
     dialogBook.close();
 })
+
+addBookToLibrary("Lord of the Rings", "J. R. R. Tolkien", 1954, 423, true);
+addBookToLibrary("Lord of the Flies", "William Golding", 1954, 224, false);
+addBookToLibrary("Jane Eyre", "Charlotte Bronte", 1847, 656, true);
