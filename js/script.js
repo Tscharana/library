@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 const libraryContainer = document.querySelector("#library-container");
 const bookForm = document.querySelector("#modal-book-form")
@@ -25,6 +25,12 @@ function Book(title, author, year, pages, read) {
 function addBookToLibrary(title, author, year, pages, read) {
     const newBook = new Book(title, author, year, pages, read);
     myLibrary.push(newBook);
+    clear();
+    display();
+}
+
+Book.prototype.removeBookfromLibrary = function () {
+    myLibrary = myLibrary.filter((book) => book.id !== this.id);
     clear();
     display();
 }
@@ -57,8 +63,8 @@ function display() {
         newBook.appendChild(readDiv);
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove book";
-        removeButton.addEventListener("click", (e) => {
-            e.currentTarget.parentElement.remove();
+        removeButton.addEventListener("click", () => {
+            book.removeBookfromLibrary();
         })
         newBook.appendChild(removeButton);
         libraryContainer.appendChild(newBook);
