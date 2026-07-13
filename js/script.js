@@ -26,13 +26,13 @@ function addBookToLibrary(title, author, year, pages, read) {
     const newBook = new Book(title, author, year, pages, read);
     myLibrary.push(newBook);
     clear();
-    display();
+    renderLibrary();
 }
 
-Book.prototype.removeBookfromLibrary = function () {
+Book.prototype.removeBookFromLibrary = function () {
     myLibrary = myLibrary.filter((book) => book.id !== this.id);
     clear();
-    display();
+    renderLibrary();
 }
 
 function clear() {
@@ -41,7 +41,7 @@ function clear() {
     }
 }
 
-function display() {
+function renderLibrary() {
     myLibrary.forEach((book) => { 
         const newBook = document.createElement("div");
         newBook.classList.add("card");
@@ -64,7 +64,7 @@ function display() {
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove book";
         removeButton.addEventListener("click", () => {
-            book.removeBookfromLibrary();
+            book.removeBookFromLibrary();
         })
         newBook.appendChild(removeButton);
         libraryContainer.appendChild(newBook);
@@ -82,6 +82,7 @@ dialogBookClose.addEventListener("click", () => {
 bookForm.addEventListener("submit", (e) => {
     e.preventDefault();
     addBookToLibrary(title.value, author.value, year.value, pages.value, read.checked);
+    bookForm.reset();
     dialogBook.close();
 })
 
