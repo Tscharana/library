@@ -65,20 +65,23 @@ function renderLibrary() {
         const readDiv = document.createElement("div");
         readDiv.textContent = book.read ? "already read" : "not read yet";
         newBook.appendChild(readDiv);
+        const buttonsDiv = document.createElement("div");
+        buttonsDiv.classList.add("buttons");
         const toggleReadButton = document.createElement("button");
         toggleReadButton.textContent = "Toggle read status";
         toggleReadButton.addEventListener("click", () => {
             book.toggleRead();
             renderLibrary();
         })
-        newBook.appendChild(toggleReadButton);
+        buttonsDiv.appendChild(toggleReadButton);
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove book";
         removeButton.addEventListener("click", () => {
             book.removeBookFromLibrary();
             renderLibrary();
         })
-        newBook.appendChild(removeButton);
+        buttonsDiv.appendChild(removeButton);
+        newBook.appendChild(buttonsDiv);
         libraryContainer.appendChild(newBook);
     })
 }
