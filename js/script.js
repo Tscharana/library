@@ -14,6 +14,9 @@ const pages = document.querySelector("#pages");
 const read = document.querySelector("#read");
 
 function Book(title, author, year, pages, read) {
+    if (!new.target) {
+        throw Error("You have to use the new keyword.")
+    }
     this.id = crypto.randomUUID();
     this.title = title;
     this.author = author;
