@@ -28,17 +28,14 @@ function Book(title, author, year, pages, read) {
 function addBookToLibrary(title, author, year, pages, read) {
     const newBook = new Book(title, author, year, pages, read);
     myLibrary.push(newBook);
-    renderLibrary();
 }
 
 Book.prototype.removeBookFromLibrary = function () {
     myLibrary = myLibrary.filter((book) => book.id !== this.id);
-    renderLibrary();
 }
 
 Book.prototype.toggleRead = function () {
     this.read = !this.read;
-    renderLibrary();
 }
 
 function clear() {
@@ -72,12 +69,14 @@ function renderLibrary() {
         toggleReadButton.textContent = "Toggle read status";
         toggleReadButton.addEventListener("click", () => {
             book.toggleRead();
+            renderLibrary();
         })
         newBook.appendChild(toggleReadButton);
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove book";
         removeButton.addEventListener("click", () => {
             book.removeBookFromLibrary();
+            renderLibrary();
         })
         newBook.appendChild(removeButton);
         libraryContainer.appendChild(newBook);
@@ -97,6 +96,7 @@ bookForm.addEventListener("submit", (e) => {
     addBookToLibrary(title.value, author.value, year.value, pages.value, read.checked);
     bookForm.reset();
     dialogBook.close();
+    renderLibrary();
 })
 
 addBookToLibrary("Lord of the Rings", "J. R. R. Tolkien", 1954, 423, true);
@@ -105,3 +105,4 @@ addBookToLibrary("Jane Eyre", "Charlotte Bronte", 1847, 656, true);
 addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 1925, 190, true);
 addBookToLibrary("Le Deuxième Sexe", "Simone de Beauvoir", 1949, 528, false);
 addBookToLibrary("Pride and Prejudice", "Jane Austen", 1813, 448, true);
+renderLibrary();
