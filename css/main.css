@@ -13,10 +13,8 @@
     display: flex;
     flex-direction: column;
     width: 200px;
-    height: 140px;
     border: 2px solid lightblue;
     background-color: lightgrey;
-    text-wrap: nowrap;
 }
 
 button#dialog-open {
