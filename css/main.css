@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: beige;
+    padding: 10px;
+}
+
 #library-container {
     display: flex;
     flex-wrap: wrap;
@@ -26,4 +31,8 @@
 
 button#dialog-open {
     margin-top: 10px;
+}
+
+button {
+    border-radius: 5px;
 }
